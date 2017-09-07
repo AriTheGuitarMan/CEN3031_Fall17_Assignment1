@@ -2,7 +2,7 @@ angular.module('listings').factory('Listings', function() {
   var listings = {
     entries : [
         {
-            "code": "AAF", 
+            "code": "AAF",
             "name": "Academic Advisement - Farrior Hall", 
             "coordinates": {
                 "latitude": 29.6502323, 
