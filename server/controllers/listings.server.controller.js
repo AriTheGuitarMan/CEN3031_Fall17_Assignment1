@@ -28,9 +28,10 @@ exports.create = function(req, res)
       longitude: req.results.lng
     };
   }
-  //if (req.results) {
- +//    listing.coordinates = req.results;
-  //  }
+  if (req.results)
+  {
+ +    listing.coordinates = req.results;
+  }
   
 
   /* Then save the listing */
@@ -85,7 +86,8 @@ exports.update = function(req, res)
 };
 
 /* Delete a listing */
-exports.delete = function(req, res) {
+exports.delete = function(req, res)
+{
   var listing = req.listing;
 
   /* Remove the article */
@@ -98,8 +100,6 @@ exports.delete = function(req, res) {
     else //
       res.end();
   })
-};
-    
 };
 
 /* Retreive all the directory listings, sorted alphabetically by listing code */
