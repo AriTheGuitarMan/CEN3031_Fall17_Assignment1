@@ -13,6 +13,8 @@ module.exports.init = function() {
 
   //initialize app
   var app = express();
+    
+  app.set('json spaces', 4);
 
   //enable request logging for development debugging
   app.use(morgan('dev'));

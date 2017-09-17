@@ -28,6 +28,10 @@ exports.create = function(req, res)
       longitude: req.results.lng
     };
   }
+  //if (req.results) {
+ +//    listing.coordinates = req.results;
+  //  }
+  
 
   /* Then save the listing */
   listing.save(function(err)
