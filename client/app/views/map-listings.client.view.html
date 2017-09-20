@@ -8,3 +8,68 @@
     https://angular-ui.github.io/angular-google-maps/#!/api/markers
     https://angular-ui.github.io/angular-google-maps/#!/api/windows
   -->
+<!--
+<div class="row" ng-controller="ListingsController">
+  <div class="col-md-offset-1 col-md-10 formWrapper">
+    <div class="page-header">
+      <h3>Map Listing</h3>
+       
+        Validation of forms is important to ensure that a user submits the correct information. Angular provides
+        some useful APIs for validating forms. Documentation can be found here: 
+
+          https://docs.angularjs.org/guide/forms
+
+        We use the ng-submit directive to create a new listing. The controller's create() function checks the validity of the form and sends any errors in the form of a call to $broadcast. Bootstrap also provides 
+        conveience methods for displaying these error messages to the user. If you're not quite sure what this code is doing, take a look at this link: 
+
+          https://github.com/paulyoder/angular-bootstrap-show-errors
+      
+      <div id="map_canvas" ng-controller="mainCtrl">
+          <ui-gmap-google-map center="map.center" zoom="map.zoom" options="options"></ui-gmap-google-map>
+      </div>
+        
+      <div id="map_canvas" ng-controller="mainCtrl">
+        <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options" bounds="map.bounds">
+           <ui-gmap-markers models="randomMarkers" coords="'self'" icon="'icon'">
+           </ui-gmap-markers>
+        </ui-gmap-google-map>
+      </div>
+      -->
+      <div ng-controller="ListingsController" ng-init = "find()" >
+        <ui-gmap-google-map center="map.center" zoom="map.zoom"  >
+          <ui-gmap-markers models="listings" coords="'coordinates'" icon="'icon'" idkey = "'_id">
+            <ui-gmap-windows show="show">
+              <div ng-non-bindable>
+                {{name}} ({{code}}) <br>
+                {{address}}
+              </div>
+            </ui-gmap-windows>
+          </ui-gmap-markers>
+        </ui-gmap-google-map>
+      </div>    
+      <!--
+      <form name="listingForm" class="form-horizontal" ng-submit="create(listingForm.$valid)">
+        <fieldset>
+          <div class="form-group" show-errors>
+            <label for="center">Name</label>
+            <input name="center" type="text" ng-model="center" id="center" class="form-control" placeholder="Center" required>
+            <div ng-messages="listingForm.center.$error" role="alert">
+              <p class="help-block error-text" ng-message="required">Listing name is required</p>
+            </div>
+          </div>
+          <div class="form-group" show-errors>
+            <label for="zoom">Code</label>
+            <input name="zoom" type="text" ng-model="zoom" id="zoom" class="form-control" placeholder="Zoom" required>
+            <div ng-messages="listingForm.zoom.$error" role="alert">
+              <p class="help-block error-text" ng-message="required">Listing code is required</p>
+            </div>
+          </div>
+        
+
+            
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</div>
+-->

@@ -14,10 +14,22 @@ angular.module('listings').config(['$stateProvider', '$urlRouterProvider',
           successMessage: null
         }
       })
-      .state('listings.create', {
+      
+        .state('listings.create', {
         url: '/create', 
         templateUrl: 'app/views/create-listing.client.view.html'
       })
+      
+      .state('listings.update', {
+        url: '/listingId',
+        templateUrl: 'app/views/edit-listing.client.view.html'
+       })
+      
+        .state('listings.map', {
+        url: '/map',
+        templateUrl: 'app/views/map-listings.client.view.html'
+       })
+      
       .state('listings.view', {
         url: '/:listingId', 
         templateUrl: 'app/views/view-listing.client.view.html'
