@@ -13,7 +13,7 @@ module.exports.init = function() {
 
   //initialize app
   var app = express();
-    
+//
   app.set('json spaces', 4);
 
   //enable request logging for development debugging
@@ -21,13 +21,11 @@ module.exports.init = function() {
 
   //body parsing middleware 
   app.use(bodyParser.json());
-    //
-
-  /* serve static files */
+  //serving static files
   app.use('/', express.static(__dirname + '/../../client'));
   app.use('/public', express.static(__dirname + '/../../public'));
 
-  /* use the listings router for requests to the api */
+  //use the router from the listings to handle requests directed to api
   app.use('/api/listings', listingsRouter);
 
   /* server wrapper around Google Maps API to get latitude + longitude coordinates from address */
@@ -36,6 +34,7 @@ module.exports.init = function() {
   });
     
   /* go to homepage for all routes not specified */
+  //
   app.all('/*', function(req, res)
   {
     res.sendFile(path.resolve('client/index.html'));

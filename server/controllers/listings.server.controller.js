@@ -77,7 +77,8 @@ exports.update = function(req, res)
     if(err)
     {
       console.log(err);
-      res.status(400).send(err);
+      res.status(400).send(err);//send error
+      //JSON.stringifty(error);
     }
     else
       res.json(listing);
@@ -86,16 +87,16 @@ exports.update = function(req, res)
 };
 
 /* Delete a listing */
+//exports.remove
 exports.delete = function(req, res)
 {
   var listing = req.listing;
-
-  /* Remove the article */
-  listing.remove(function(err)
+  listing.remove(function(err) //time to delete :)
   {
     if(err) /**/
     {
       res.status(400).send(err);
+      //JSON.stringify(error);
     }
     else //
       res.end();
@@ -105,12 +106,13 @@ exports.delete = function(req, res)
 /* Retreive all the directory listings, sorted alphabetically by listing code */
 exports.list = function(req, res) {
   /* Your code here */
-  
+  //Listing.find().sort("code").
   Listing.find().sort('code').exec(function(err, listings)
   {
     if(err)
     {
       res.status(400).send(err);
+      //JSON.stringify(error);
     }
     else
       res.json(listings); //json lsting response
