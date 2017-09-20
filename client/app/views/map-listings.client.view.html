@@ -24,28 +24,37 @@
 
           https://github.com/paulyoder/angular-bootstrap-show-errors
       
-      <div id="map_canvas" ng-controller="mainCtrl">
+      <div id="map_canvas" ng-controller="ListingsController">
           <ui-gmap-google-map center="map.center" zoom="map.zoom" options="options"></ui-gmap-google-map>
       </div>
         
-      <div id="map_canvas" ng-controller="mainCtrl">
+      <div id="map_canvas" ng-controller="ListingsController">
         <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options" bounds="map.bounds">
            <ui-gmap-markers models="randomMarkers" coords="'self'" icon="'icon'">
            </ui-gmap-markers>
         </ui-gmap-google-map>
       </div>
       -->
-      <div ng-controller="ListingsController" ng-init = "find()" >
-        <ui-gmap-google-map center="map.center" zoom="map.zoom"  >
+      <div class="row" ng-controller="ListingsController" ng-init = "find()" >
+        <div class="col-md-offset-1 col-md-10">
+            <div ng-show="error" class="text-danger">
+                 <strong ng-bind="error"></strong>
+            </div>
+            <div ng-show="success" class="text-success">
+                <strong ng-bind="success"></strong>
+            </div>
+          <ui-gmap-google-map center="map.center" zoom="map.zoom"  >
           <ui-gmap-markers models="listings" coords="'coordinates'" icon="'icon'" idkey = "'_id">
             <ui-gmap-windows show="show">
               <div ng-non-bindable>
-                {{name}} ({{code}}) <br>
-                {{address}}
+                  <h2>{{name}}: ({{code}})</h2> <br>
+                  <h2>{{address}}</h2>
               </div>
             </ui-gmap-windows>
           </ui-gmap-markers>
         </ui-gmap-google-map>
+            
+        </div>
       </div>    
       <!--
       <form name="listingForm" class="form-horizontal" ng-submit="create(listingForm.$valid)">
