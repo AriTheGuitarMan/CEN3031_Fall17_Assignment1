@@ -31,7 +31,7 @@ angular.module('listings').config(['$stateProvider', '$urlRouterProvider',
       })
       
       .state('listings.edit', {
-        url: '/listingId',
+        url: '/:listingId',
         templateUrl: 'app/views/edit-listing.client.view.html'
        })
       
